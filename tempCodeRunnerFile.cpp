@@ -19,17 +19,11 @@ int main()
 {
     cout << "Please choose the currency you would like to convert."<< '\n' << "0: USD\n"<< '\n' << "1: EUR\n"<< '\n' << "2: JPY\n";
     cin >> currencyNum;
-    if(!checkChoices1(currencyNum))
-    {
-        return 1;
-    }
+    checkChoices1(currencyNum);
 
     cout << "Please choose the currency you would like to convert to. "<< '\n' << "0: USD\n"<< '\n' << "1: EUR\n"<< '\n' << "2: JPY\n";
     cin >> currencySwitchNum;
-    if(!checkChoices2(currencySwitchNum))
-    {
-        return 1;
-    }
+    checkChoices2(currencySwitchNum);
     
     cout << "How much are you looking to convert?." << endl;
     cin >> amount;
@@ -99,15 +93,15 @@ double convert(double amount, int currencyNum, int currencySwitchNum){
 bool checkChoices1(int currencyNum){
     if(currencyNum < 0 || currencyNum > 2){
         cout << "Please choose a currency listed above" << endl;
-        return 0;
+        return 1;
     }
-    else return 1;
+    return true;
 }       
 
 bool checkChoices2(int currencySwitchNum){
     if(currencySwitchNum < 0 || currencySwitchNum > 2){
         cout << "Please choose a currency listed above" << endl;
-        return 0;
+        return 1;
     }
-    else return 1;
+    return true;
 }       
