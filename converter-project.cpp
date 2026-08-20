@@ -1,63 +1,75 @@
 #include "converter.h"
 #include <iostream>
+#include <string>
+
 using namespace std;
-
-
-int currencySwitchNum;
-int currencyNum;
-
-double amount;
-double converted;
-
-string currencyChoice;
-string currencyChoiceSwitch;
-
-double convert(double amount, int currencyNum, int currencySwitchNum);
-bool checkChoices1(int currencyNum);
-bool checkChoices2(int currencySwitchNum);
 
 int main()
 {
-    cout << "Please choose the currency you would like to convert."<< '\n' << "0: USD\n"<< '\n' << "1: EUR\n"<< '\n' << "2: JPY\n";
+    int currencySwitchNum;
+    int currencyNum;
+    double amount;
+    double converted;
+    string currencyChoice;
+    string currencyChoiceSwitch;
+
+    cout << "Enter the currency you have: " << endl;
+    cout << "0. USD" << endl;
+    cout << "1. EUR" << endl;
+    cout << "2. JPY" << endl;
     cin >> currencyNum;
-    if(!checkChoices1(currencyNum))
+
+    if (!checkChoice(currencyNum))
     {
-        return 1;
+        cout << "Invalid choice" << endl;
+        return 0;
     }
 
-    cout << "Please choose the currency you would like to convert to. "<< '\n' << "0: USD\n"<< '\n' << "1: EUR\n"<< '\n' << "2: JPY\n";
-    cin >> currencySwitchNum;
-    if(!checkChoices2(currencySwitchNum))
+    if (currencyNum == 0)
     {
-        return 1;
+        currencyChoice = "USD";
     }
-    
-    cout << "How much are you looking to convert?." << endl;
+    else if (currencyNum == 1)
+    {
+        currencyChoice = "EUR";
+    }
+    else if (currencyNum == 2)
+    {
+        currencyChoice = "JPY";
+    }
+
+    cout << "Enter the currency you want to convert to: " << endl;
+    cout << "0. USD" << endl;
+    cout << "1. EUR" << endl;
+    cout << "2. JPY" << endl;
+    cin >> currencySwitchNum;
+
+    if (!checkChoice(currencySwitchNum))
+    {
+        cout << "Invalid choice" << endl;
+        return 0;
+    }
+
+    if (currencySwitchNum == 0)
+    {
+        currencyChoiceSwitch = "USD";
+    }
+    else if (currencySwitchNum == 1)
+    {
+        currencyChoiceSwitch = "EUR";
+    }
+    else if (currencySwitchNum == 2)
+    {
+        currencyChoiceSwitch = "JPY";
+    }
+
+    cout << "Enter the amount you want to convert: ";
     cin >> amount;
 
-    switch(currencyNum){
-        case 0:
-            currencyChoice = "USD";
-        break;
-        case 1:
-            currencyChoice = "EUR";
-        break;    
-        case 2:
-            currencyChoice = "JPY";
-    }
-    switch(currencySwitchNum){
-        case 0:
-            currencyChoiceSwitch = "USD";
-        break;
-        case 1:
-            currencyChoiceSwitch = "EUR";
-        break;    
-        case 2:
-            currencyChoiceSwitch = "JPY";
-            break;      
-        
-    }
+    converted = convert(amount, currencyNum, currencySwitchNum);
 
-    converted = convert(amount,currencyNum,currencySwitchNum);
-        cout << amount << " " << currencyChoice << " = " << converted << currencyChoiceSwitch << " " << endl;
+    cout << amount << " " << currencyChoice << " = "
+         << converted << " " << currencyChoiceSwitch << endl;
+
+    return 0;
 }
