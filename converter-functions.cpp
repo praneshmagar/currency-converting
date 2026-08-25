@@ -1,8 +1,6 @@
 #include "converter.h"
 #include <iostream>
 
-using namespace std;
-
 double convert(double amount, int currencyNum, int currencySwitchNum)
 {
     if (currencyNum == 0 && currencySwitchNum == 1)
@@ -39,7 +37,7 @@ bool checkChoice(int choice)
 {
     if (choice < 0 || choice > 2)
     {
-        cout << "Please choose a currency listed above" << endl;
+        std::cout << "Please choose a currency listed above" << std::endl;
         return 0;
     }
     else

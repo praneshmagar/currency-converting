@@ -2,26 +2,24 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main()
 {
     int currencySwitchNum;
     int currencyNum;
     double amount;
     double converted;
-    string currencyChoice;
-    string currencyChoiceSwitch;
+    std::string currencyChoice;
+    std::string currencyChoiceSwitch;
 
-    cout << "Enter the currency you have: " << endl;
-    cout << "0. USD" << endl;
-    cout << "1. EUR" << endl;
-    cout << "2. JPY" << endl;
-    cin >> currencyNum;
+    std::cout << "Enter the currency you have: " << std::endl;
+    std::cout << "0. USD" << std::endl;
+    std::cout << "1. EUR" << std::endl;
+    std::cout << "2. JPY" << std::endl;
+    std::cin >> currencyNum;
 
     if (!checkChoice(currencyNum))
     {
-        cout << "Invalid choice" << endl;
+        std::cout << "Invalid choice" << std::endl;
         return 0;
     }
 
@@ -38,15 +36,15 @@ int main()
         currencyChoice = "JPY";
     }
 
-    cout << "Enter the currency you want to convert to: " << endl;
-    cout << "0. USD" << endl;
-    cout << "1. EUR" << endl;
-    cout << "2. JPY" << endl;
-    cin >> currencySwitchNum;
+    std::cout << "Enter the currency you want to convert to: " << std::endl;
+    std::cout << "0. USD" << std::endl;
+    std::cout << "1. EUR" << std::endl;
+    std::cout << "2. JPY" << std::endl;
+    std::cin >> currencySwitchNum;
 
     if (!checkChoice(currencySwitchNum))
     {
-        cout << "Invalid choice" << endl;
+        std::cout << "Invalid choice" << std::endl;
         return 0;
     }
 
@@ -63,13 +61,13 @@ int main()
         currencyChoiceSwitch = "JPY";
     }
 
-    cout << "Enter the amount you want to convert: ";
-    cin >> amount;
+    std::cout << "Enter the amount you want to convert: ";
+    std::cin >> amount;
 
     converted = convert(amount, currencyNum, currencySwitchNum);
 
-    cout << amount << " " << currencyChoice << " = "
-         << converted << " " << currencyChoiceSwitch << endl;
+    std::cout << amount << " " << currencyChoice << " = "
+              << converted << " " << currencyChoiceSwitch << std::endl;
 
     return 0;
 }
