@@ -1,47 +1,44 @@
 #include "converter.h"
 #include <iostream>
 
-double convert(double amount, int currencyNum, int currencySwitchNum)
+
+double getExchangeRateAPI(std::string fromCurrency, std::string toCurrency) //take what fromCurrency user inputs and what toCurrency user inputs then use api to get the rate
 {
-    if (currencyNum == 0 && currencySwitchNum == 1)
-    {
-        return amount * .85;
-    }
-    else if (currencyNum == 1 && currencySwitchNum == 0)
-    {
-        return amount / .85;
-    }
-    else if (currencyNum == 0 && currencySwitchNum == 2)
-    {
-        return amount * 150;
-    }
-    else if (currencyNum == 2 && currencySwitchNum == 0)
-    {
-        return amount / 150;
-    }
-    else if (currencyNum == 1 && currencySwitchNum == 2)
-    {
-        return amount * (150 / .85);
-    }
-    else if (currencyNum == 2 && currencySwitchNum == 1)
-    {
-        return amount * (.85 / 150);
-    }
-    else
-    {
-        return amount;
-    }
+
+//libcurl
+//api
+//extract rate, then double rate
+double rate = .75;
+
+//
+
+
+    return rate; // return the rate of the fromCurrency and toCurrency 
 }
 
-bool checkChoice(int choice)
+
+double convert(double amount, double rate) //get the amount of fromCurrency from user and the rate from getExchangeRateAPI then call this function in main
 {
-    if (choice < 0 || choice > 2)
-    {
-        std::cout << "Please choose a currency listed above" << std::endl;
-        return 0;
+
+
+        return amount * rate;
     }
-    else
-    {
-        return 1;
-    }
-}
+
+
+
+
+
+
+
+//bool validCurrency(std::string, std::string) if api does not recongize students fromCurrency and toCurrency return invalid choice
+//{
+//    if ()
+//    {
+//       std::cout << "Unrecongized Currenies" << std::endl;
+//      return 0;
+//    }
+//    else
+//    {
+//        return 1;
+//   }
+//}

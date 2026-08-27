@@ -1,7 +1,10 @@
 #ifndef CONVERTER_H
 #define CONVERTER_H
 
-double convert(double amount, int currencyNum, int currencySwitchNum);
-bool checkChoice(int choice);
+#include <string>
+
+double getExchangeRateAPI(std::string fromCurrency, std::string toCurrency);
+
+double convert(double amount, double rate);
 
 #endif
