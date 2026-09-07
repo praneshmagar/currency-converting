@@ -19,13 +19,6 @@ int main()
 
     std::cout << "Enter the amount you want to convert: ";
     std::cin >> amount;
- //   if () if api does not recongize students fromCurrency and toCurrency return invalid choice
- //   {
- //       std::cout << "Invalid choice" << std::endl;
- //       return 0;
- //   }
-
-
 
     rate = getExchangeRateAPI(fromCurrency, toCurrency);
 
