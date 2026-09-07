@@ -30,6 +30,7 @@ A C++ console application that converts currencies using live exchange rates.
 
 ## Example
 
+```text
 Enter the currency you have:
 USD
 
@@ -40,16 +41,21 @@ Enter the amount you want to convert: 30
 
 Current conversion rate: 0.8611
 30 USD = 25.833 EUR
+```
 
 ## Building the Project
 
 Compile with:
 
+```powershell
 g++ converter-project.cpp converter-functions.cpp -lcurl -o converter-project.exe
+```
 
 Run with:
 
-./converter-project.exe
+```powershell
+.\converter-project.exe
+```
 
 ## API Key Setup
 
@@ -59,8 +65,23 @@ This project requires an ExchangeRate-API key. The API key is stored in an envir
 
 To temporarily set the API key for the current PowerShell session:
 
-in powershell: 
+```powershell
 $env:EXCHANGE_API_KEY="YOUR_API_KEY"
+```
+
+To store the API key permanently for your Windows user account:
+
+```powershell
+[Environment]::SetEnvironmentVariable("EXCHANGE_API_KEY", "YOUR_API_KEY", "User")
+```
+
+Restart the terminal or VS Code after setting the permanent environment variable.
+
+## Dependencies
+
+- libcurl
+- nlohmann/json
+- ExchangeRate-API key
 
 ## What I Learned
 
