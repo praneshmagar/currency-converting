@@ -20,7 +20,7 @@ size_t WriteCallback(char* contents, size_t size, size_t nmemb, void* userp ) //
 
 double getExchangeRateAPI(std::string fromCurrency, std::string toCurrency) //take what fromCurrency user inputs and what toCurrency user inputs then use api to get the rate
 {
-    const char* apikey = std::getenv("EXCHANGE_API_KEY"); // failed trying to do this retry later
+    const char* apikey = std::getenv("EXCHANGE_API_KEY"); // retreive api key from environment
 
     if(apikey == nullptr){
         std::cout << "API KEY NOT FOUND" << std::endl;
@@ -56,7 +56,7 @@ double getExchangeRateAPI(std::string fromCurrency, std::string toCurrency) //ta
 
     if(result != CURLE_OK)
     {
-        std::cout << "Request Failed"
+        std::cout << "Request Failed: "
                   << curl_easy_strerror(result)
                   << std::endl;
         curl_easy_cleanup(curl);
@@ -85,5 +85,5 @@ double getExchangeRateAPI(std::string fromCurrency, std::string toCurrency) //ta
 double convert(double amount, double rate) //get the amount of fromCurrency from user and the rate from getExchangeRateAPI then call this function in main
 {
     return amount * rate;
-    }
+}
 
