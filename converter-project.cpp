@@ -30,8 +30,8 @@ int main()
     rate = getExchangeRateAPI(fromCurrency, toCurrency);
 
     converted = convert(amount, rate); 
-
-    std::cout << amount << std::endl;
+    std::cout << amount << " " << fromCurrency << " = "
+        << converted << " " << toCurrency << std::endl;
 
     return 0;
 }
